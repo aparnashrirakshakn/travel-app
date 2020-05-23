@@ -6,30 +6,33 @@
         </title>   
     </head>
     <body>
+        <header>
+            <h1>Travel App</h1>
+        </header>
+        
+        <section>
+            <!-- Form Section -->
+        </section>
+
+        <section>
+            <!-- Saved Plans Section -->
+        </section>
+        
         <div class="container">
-            <div class="left-container">
-                <div class="logo-container">
-                    <!-- TODO: Add logo here when available -->
-                </div>
-                <div class="description-container">
-                    <h1 class="app-title">TRAVEL APP</h1>
-                </div>
-                <div class="form-container">
-                    <form>
-                        <div class="form-group location-holder">
-                          <label for="location">Location</label>
-                          <input type="text" class="form-control" id="location" aria-describedby="location" placeholder="Enter desired location here">
-                        </div>
-                        <div class="form-group date-holder">
-                          <label for="date">Date</label>
-                          <input type="text" class="form-control" id="date" aria-describedby="date" placeholder="Enter your travel date here"></input>
-                        </div>
-                        <button type="submit" id="plan" class="btn btn-lg btn-plan">Plan</button>
-                    </form>
-                </div>
+            <div class="form-container">
+                    <span>Let's go on a trip</span>
+                    <div class="to-control">
+                        <label for="to">to</label>
+                        <input type="text" class="form-control" id="to" aria-describedby="To" placeholder="Enter location here">    
+                    </div>
+                    <div class="date-control">
+                        <label for="on"> on </label>
+                        <input type="date" class="form-control" id="on" aria-describedby="On">
+                    </div>
+                    <button class="btn-plan">Plan</button>
             </div>
-            <div class="right-container">
-                
+            <div class="result-container">
+
             </div>
         </div>
     </body>
