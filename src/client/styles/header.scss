@@ -1,8 +1,29 @@
 @import './colors.scss';
 
 header {
-    padding: 1rem;
-    text-align: center;
-    background-color: $primary;
-    color: $p-text;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    > img {
+        width: 15%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    header {
+        flex-direction: column;
+        padding: 2rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        > img {
+            width: 50%;
+            height: auto;
+        }
+    }
 }
