@@ -1,22 +1,21 @@
-const geoNames = {
-    "baseUrl" : "http://api.geonames.org/searchJSON?",
-    "username" : "<YOUR USER NAME HERE>",
-    "formatted" : true,
-    "style": "full"
-}
-
-const weatherBit = {
-    "baseUrl" : "https://api.weatherbit.io/v2.0/forecast/daily",
-    "key": "<YOUR API KEY HERE>"
-}
-
-const pixabay = {
-    "baseUrl" : "https://pixabay.com/api/",
-    "apiKey": "<YOUR API KEY HERE>",
-    "image_type": "photo"
-}
-
-const restCountries = {
-    "baseUrl": "https://restcountries.eu/rest/v2/name"
+const API = {
+    geoNames: {
+        "baseUrl" : "http://api.geonames.org/searchJSON?",
+        "username" : "<YOUR USERNAME HERE>",
+        "formatted" : true,
+        "style": "full"
+    },
+    weatherBit: {
+        "baseUrl" : "https://api.weatherbit.io/v2.0/forecast/daily",
+        "key": "<YOUR API KEY HERE>"
+    },
+    pixabay: {
+        "baseUrl" : "https://pixabay.com/api/",
+        "key": "<YOUR API KEY HERE>",
+        "image_type": "photo"
+    },
+    restCountries: {
+        "baseUrl": "https://restcountries.eu/rest/v2/name"
+    }
 }
 
