@@ -1,30 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Udacity Travel App</title>
-</head>
-<body>
-    
-    <header>
-        <h1>Travel App</h1>
-    </header>
-
-    <main>
-        <!-- Form section -->
-        <section>
-            <form>
-                <label for="location">To</label>
-                <input type="text" id="location" autofocus required />
-
-                <label for="trip-date">On</label>
-                <input type="date" id="trip-date" required/>
-                
-                <button type="submit">Plan</button>
-            </form>
-        </section>
-    </main>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel App</title>
+    </head>
+    <body>
+        <div class="main">
+            <img id="app-logo" src="#" alt="logo">
+            <section>
+                <span>Let's plan a trip</span>
+                <div>
+                    <label for="location">to</label>
+                    <input type="text" id="location" placeholder="Enter location" autofocus required />
+                </div>
+                <div>
+                    <label for="date">on</label>
+                    <input type="date" id="trip-date" required/>
+                </div>
+                <button type="submit" class="btn-plan">Plan</button>
+            </section>
+        </div>
+    </body>
 </html>
