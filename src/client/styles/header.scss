@@ -6,6 +6,7 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    border-radius: 2rem;
 
     > img {
         width: 15%;
@@ -13,7 +14,7 @@ header {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
     header {
         flex-direction: column;
         padding: 2rem;
