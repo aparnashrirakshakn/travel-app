@@ -47,6 +47,11 @@ const savePlanListener = (req, res) => {
     }
 };
 
+// get plans
+const getPlansListener = (req, res) => {
+    res.status(200).send(plans);
+}
+
 
 /*
  * Endpoints
@@ -55,8 +60,11 @@ const savePlanListener = (req, res) => {
 // test
 app.get('/test', testListener);
 
-// get
+// render
 app.get('/', renderListener);
 
 // save
 app.post('/plan/save', savePlanListener);
+
+// get plans
+app.get('/plans', getPlansListener);
