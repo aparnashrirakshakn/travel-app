@@ -18,3 +18,5 @@ const API = {
         "baseUrl": "https://restcountries.eu/rest/v2/name"
     }
 }
+
+export { API };
