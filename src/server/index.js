@@ -20,3 +20,9 @@ function listener() {
 }
 
 
+// test endpoint
+
+app.get('/test', (req, res) => {
+    res.status(200).send("Test Successful!");
+});
+
