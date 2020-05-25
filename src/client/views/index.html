@@ -23,5 +23,16 @@
         </header>
         <div class="result-container" id="result-container"></div>
         <div class="cards-container" id="cards-container"></div>
+
+        <!-- Add Service Worker -->
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>
