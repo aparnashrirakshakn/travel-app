@@ -4,7 +4,7 @@ async function fetchLocationInfo(city) {
     const locationUrl = `${API.geoNames.baseUrl}&q=${city}&username=${API.geoNames.username}&style=${API.geoNames.style}`;
 
     try {
-        const response = fetch(locationUrl);
+        const response = await fetch(locationUrl);
 
         if(response.status === 200) {
             const jsonResponse = await response.json();
@@ -24,7 +24,7 @@ async function fetchWeatherInfo(latitude, longitude) {
     const weatherUrl = `${API.weatherBit.baseUrl}&lat=${latitude}&lon=${longitude}&key=${API.weatherBit.key}`;
 
     try {
-        const response = fetch(weatherUrl);
+        const response = await fetch(weatherUrl);
 
         if(response.status === 200) {
             const jsonResponse = await response.json();
@@ -43,7 +43,7 @@ async function fetchLocationPic(countryName) {
     const locationPicUrl = `${API.pixabay.baseUrl}&q=${city}&key=${API.pixabay.apiKey}&image_type=${API.pixabay.image_type}`;
 
     try {
-        const response = fetch(locationPicUrl);
+        const response = await fetch(locationPicUrl);
 
         if(response.status === 200) {
             const jsonResponse = await response.json();
@@ -63,7 +63,7 @@ async function fetchCountryInfo(countryName) {
     const locationPicUrl = `${API.restCountries.baseUrl}${countryName}`;
 
     try {
-        const response = fetch(locationPicUrl);
+        const response = await fetch(locationPicUrl);
 
         if(response.status === 200) {
             const jsonResponse = await response.json();
