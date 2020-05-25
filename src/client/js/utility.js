@@ -39,8 +39,8 @@ async function fetchWeatherInfo(latitude, longitude) {
     }
 }
 
-async function fetchLocationPic(countryName) {
-    const locationPicUrl = `${API.pixabay.baseUrl}&q=${city}&key=${API.pixabay.apiKey}&image_type=${API.pixabay.image_type}`;
+async function fetchLocationPic(locationName) {
+    const locationPicUrl = `${API.pixabay.baseUrl}&q=${locationName}&key=${API.pixabay.key}&image_type=${API.pixabay.image_type}`;
 
     try {
         const response = await fetch(locationPicUrl);
@@ -60,10 +60,10 @@ async function fetchLocationPic(countryName) {
 }
 
 async function fetchCountryInfo(countryName) {
-    const locationPicUrl = `${API.restCountries.baseUrl}${countryName}`;
+    const countryInfoUrl = `${API.restCountries.baseUrl}${countryName}`;
 
     try {
-        const response = await fetch(locationPicUrl);
+        const response = await fetch(countryInfoUrl);
 
         if(response.status === 200) {
             const jsonResponse = await response.json();
