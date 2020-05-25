@@ -15,7 +15,7 @@ const API = {
         "image_type": "photo"
     },
     restCountries: {
-        "baseUrl": "https://restcountries.eu/rest/v2/name"
+        "baseUrl": "https://restcountries.eu/rest/v2/name/"
     }
 }
 
