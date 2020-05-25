@@ -12,9 +12,6 @@ dotenv.config();
 
 app.use(express.static('dist'));
 
-const port = 8081;
-app.listen(port, appListener);
-
 // global variables
 let plans = [];
 
@@ -40,7 +37,8 @@ const renderListener = (req, res) => {
 // save
 const savePlanListener = (req, res) => {
     if(req.body) {
-      plans.push(req.body.plan);  
+      plans.push(req.body.plan); 
+      res.status(201).send(plans);
     }
     else {
         res.status(400).send("Invalid request. No plan details available.");
@@ -68,3 +66,8 @@ app.post('/plan/save', savePlanListener);
 
 // get plans
 app.get('/plans', getPlansListener);
+
+
+// server listens
+const port = 8081;
+app.listen(port, appListener);
