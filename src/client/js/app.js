@@ -113,7 +113,7 @@ function clearResultUI() {
 
 function constructSavedCardUI(plans) {
     const cardsContainer = document.getElementById('cards-container');
-
+    cardsContainer.querySelectorAll('*').forEach(node => node.remove());
     plans.map(plan => {
         let cardDiv = createCard(plan, false);
         cardsContainer.appendChild(cardDiv);
