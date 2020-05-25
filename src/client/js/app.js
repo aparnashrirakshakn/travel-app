@@ -24,6 +24,7 @@ async function onPlanButtonClick(e) {
     plan.weather = weatherDetails;
     plan.picture = locationPic;
 
+    console.log(plan);
     // construct the UI
     constructUI(plan);
 }
@@ -40,9 +41,9 @@ function constructUI(plan) {
     cardDiv.setAttribute('id','card-img');
 
     const cardParagraph = document.createElement('p');
-    cardParagraph.innerHTML = `Your trip to <strong>${plan.location.city}</strong> is in <strong>${plan.location.daysToTrip}</strong> days!
-    Expect the temperature to be about <strong>${plan.weather.temp}</strong>.
-    Make sure to carry some <strong>${plan.location.countryDetails.currencies[0].name}(${plan.location.countryDetails.currencies[0].symbol})</strong>with you!`;
+    cardParagraph.innerHTML = `Your trip to <strong>${plan.location.toponymName}</strong> is in <strong>${plan.location.daysToTrip}</strong> days!
+    Expect the temperature to be about <strong>${plan.weather.temp} &deg;C</strong>, with <strong>${plan.weather.weather.description}</strong>.
+    Make sure to carry some <strong>${plan.location.countryDetails.currencies[0].name}(${plan.location.countryDetails.currencies[0].symbol})</strong> with you!`;
     cardDiv.setAttribute('id','card-paragraph');
 
     const buttonDiv = document.createElement('div');
@@ -73,7 +74,7 @@ async function onSaveButtonClick(e) {
     e.preventDefault();
 
     try {
-        const response = await fetch("http://localhost:8080/plan/save", {
+        const response = await fetch("http://localhost:8081/plan/save", {
             method: "POST",
             credentials: "same-origin",
             headers: {
