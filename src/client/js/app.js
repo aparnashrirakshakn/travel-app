@@ -36,7 +36,7 @@ function constructUI(plan) {
     cardDiv.setAttribute('id','card-div');
 
     const cardImg = document.createElement('img');
-    cardImg.setAttribute('src',picture);
+    cardImg.setAttribute('src',plan.picture);
     cardDiv.setAttribute('id','card-img');
 
     const cardParagraph = document.createElement('p');
@@ -52,10 +52,12 @@ function constructUI(plan) {
     const cancelButton = document.createElement('button');
     cancelButton.setAttribute('id', 'btn-cancel');
     cancelButton.addEventListener('click', onCancelButtonClick);
+    cancelButton.innerHTML = "Cancel";
 
     const saveButton = document.createElement('button');
     saveButton.setAttribute('id', 'btn-save');
     saveButton.addEventListener('click', onSaveButtonClick);
+    saveButton.innerHTML = "Save";
 
     buttonDiv.appendChild(cancelButton);
     buttonDiv.appendChild(saveButton);
