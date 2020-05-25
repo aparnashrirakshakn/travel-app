@@ -57,6 +57,14 @@
             border: 0;
         }
     }
+
+    button:first-child:hover {
+        border: 2px solid #E23E31;
+        color: #E23E31;
+    }
+    button:hover {
+        background-color: #E23E31;
+    }
 }
 
 @media screen and (max-width: 700px) {
