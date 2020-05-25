@@ -83,7 +83,7 @@ function getCountdown(tripDate) {
     var today = new Date();
     var tripDay = new Date(tripDate);
     var oneDay = 86400000; //number of milliseconds in a day
-    return (tripDay-today) / oneDay;
+    return Math.ceil((tripDay-today) / oneDay);
 }
 
 export { fetchLocationInfo, fetchWeatherInfo, fetchLocationPic, fetchCountryInfo, getCountdown };
