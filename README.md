@@ -26,13 +26,13 @@ Use the following URL for fetching information about a country
 https://restcountries.eu/rest/v2/name/{name}
 
 ## API Credentials
-1. Go to src > client > js > api.js
+1. Go to ```src > client > js > api.js```
 2. Insert your username for the Geonames API
 3. Insert your API key for the Weatherbit API
 4. Insert your APi key for the Pixabay API
 
 ## How to run
-1. Run npm install
-2. To start the node server, npm run start
-3. To run the application in development mode, npm run build-dev
-4. To run the application in production mode, run npm run build-prod
+1. Run ```npm install```
+2. To start the node server, ```npm run start```
+3. To run the application in development mode, ```npm run build-dev```
+4. To run the application in production mode, run ```npm run build-prod```
