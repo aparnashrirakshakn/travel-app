@@ -1,5 +1,14 @@
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
 
-.cards-container, .result-container {
+    .card {
+        min-width: 20rem;
+    }
+}
+
+.result-container {
     width: 100%;
     display: flex;
     flex-direction: row;
