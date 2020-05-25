@@ -20,7 +20,7 @@ async function fetchLocationInfo(city) {
 
 }
 
-function fetchWeatherInfo(latitude, longitude) {
+async function fetchWeatherInfo(latitude, longitude) {
     const weatherUrl = `${API.weatherBit.baseUrl}&lat=${latitude}&lon=${longitude}&key=${API.weatherBit.key}`;
 
     try {
@@ -39,7 +39,7 @@ function fetchWeatherInfo(latitude, longitude) {
     }
 }
 
-function fetchLocationPic(countryName) {
+async function fetchLocationPic(countryName) {
     const locationPicUrl = `${API.pixabay.baseUrl}&q=${city}&key=${API.pixabay.apiKey}&image_type=${API.pixabay.image_type}`;
 
     try {
@@ -50,11 +50,32 @@ function fetchLocationPic(countryName) {
             return jsonResponse.hits[0].largeImageURL;
         }
         else {
-            console.log(`Error occured. No valid response received. ${response}`)
+            console.log(`Error occured. No valid response received. ${response}`);
+            return null;
         }
     }
     catch(error) {
         console.log(`Could not fetch location pic : ${error}`);
+    }
+}
+
+async function fetchCountryInfo(countryName) {
+    const locationPicUrl = `${API.restCountries.baseUrl}${countryName}`;
+
+    try {
+        const response = fetch(locationPicUrl);
+
+        if(response.status === 200) {
+            const jsonResponse = await response.json();
+            return jsonResponse[0];
+        }
+        else {
+            console.log(`Error occured. No valid response received. ${response}`);
+            return null;
+        }
+    }
+    catch(error) {
+        console.log(`Could not fetch country information : ${error}`);
     }
 }
 
@@ -65,4 +86,4 @@ function getCountdown(tripDate) {
     return (tripDay-today) / oneDay;
 }
 
-export { fetchLocationInfo, fetchWeatherInfo, fetchLocationPic, getCountdown };
+export { fetchLocationInfo, fetchWeatherInfo, fetchLocationPic, fetchCountryInfo, getCountdown };
