@@ -32,42 +32,45 @@ async function onPlanButtonClick(e) {
 function constructUI(plan) {
     const resultContainer = document.getElementById('result-container');
 
+    const cardDiv = createCard(plan);
+
+    resultContainer.appendChild(cardDiv);
+}
+
+function createCard(plan, displayButtons = true) {
     const cardDiv = document.createElement('div');
     cardDiv.setAttribute('class','card');
-    cardDiv.setAttribute('id','card-div');
+    cardDiv.setAttribute('id', "card-div");
 
     const cardImg = document.createElement('img');
     cardImg.setAttribute('src',plan.picture);
-    cardDiv.setAttribute('id','card-img');
 
     const cardParagraph = document.createElement('p');
     cardParagraph.innerHTML = `Your trip to <strong>${plan.location.toponymName}</strong> is in <strong>${plan.location.daysToTrip}</strong> days!
     Expect the temperature to be about <strong>${plan.weather.temp} &deg;C</strong>, with <strong>${plan.weather.weather.description}</strong>.
     Make sure to carry some <strong>${plan.location.countryDetails.currencies[0].name}(${plan.location.countryDetails.currencies[0].symbol})</strong> with you!`;
-    cardDiv.setAttribute('id','card-paragraph');
 
     const buttonDiv = document.createElement('div');
     buttonDiv.setAttribute('class','card-footer');
-    cardDiv.setAttribute('id','button-div');
-
-    const cancelButton = document.createElement('button');
-    cancelButton.setAttribute('id', 'btn-cancel');
-    cancelButton.addEventListener('click', onCancelButtonClick);
-    cancelButton.innerHTML = "Cancel";
-
-    const saveButton = document.createElement('button');
-    saveButton.setAttribute('id', 'btn-save');
-    saveButton.addEventListener('click', onSaveButtonClick);
-    saveButton.innerHTML = "Save";
-
-    buttonDiv.appendChild(cancelButton);
-    buttonDiv.appendChild(saveButton);
 
     cardDiv.appendChild(cardImg);
     cardDiv.appendChild(cardParagraph);
-    cardDiv.appendChild(buttonDiv);
 
-    resultContainer.appendChild(cardDiv);
+    if(displayButtons){
+        const cancelButton = document.createElement('button');
+        cancelButton.addEventListener('click', onCancelButtonClick);
+        cancelButton.innerHTML = "Cancel";
+    
+        const saveButton = document.createElement('button');
+        saveButton.addEventListener('click', onSaveButtonClick);
+        saveButton.innerHTML = "Save";
+    
+        buttonDiv.appendChild(cancelButton);
+        buttonDiv.appendChild(saveButton);
+        cardDiv.appendChild(buttonDiv);
+    }
+
+    return cardDiv;
 }
 
 async function onSaveButtonClick(e) {
@@ -86,6 +89,7 @@ async function onSaveButtonClick(e) {
         const plans = await response.json();
 
         constructSavedCardUI(plans);
+        clearResultUI();
         
     } catch (error) {
         console.log(error);
@@ -104,24 +108,17 @@ function clearResultUI() {
 
     const cardDiv = document.getElementById('card-div');
 
-    const cardImg = document.getElementById('card-img');
-
-    const cardParagraph = document.getElementById('card-paragraph');
-
-    const buttonDiv = document.getElementById('button-div')
-
-    cardDiv.remove(cardImg);
-    cardDiv.remove(cardParagraph);
-    cardDiv.remove(buttonDiv);
-
-    resultContainer.remove(cardDiv);
+    resultContainer.removeChild(cardDiv);
 }
 
-// TODO: Complete this to finish the application logic
 function constructSavedCardUI(plans) {
+    const cardsContainer = document.getElementById('cards-container');
 
+    plans.map(plan => {
+        let cardDiv = createCard(plan, false);
+        cardsContainer.appendChild(cardDiv);
+    })
 }
-
 
 export {
     onCancelButtonClick, onPlanButtonClick, onSaveButtonClick
