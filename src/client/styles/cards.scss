@@ -1,5 +1,14 @@
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
 
-.cards-container, .results-container {
+    .card {
+        min-width: 20rem;
+    }
+}
+
+.result-container {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -23,6 +32,7 @@
     > img {
         width: 100%;
         height: auto;
+        border-radius: 2rem;
     }
 
     .card-footer {
@@ -46,6 +56,14 @@
             border-radius: 2rem;
             border: 0;
         }
+    }
+
+    button:first-child:hover {
+        border: 2px solid #E23E31;
+        color: #E23E31;
+    }
+    button:hover {
+        background-color: #E23E31;
     }
 }
 
