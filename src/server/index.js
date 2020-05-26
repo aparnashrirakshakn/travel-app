@@ -71,3 +71,5 @@ app.get('/plans', getPlansListener);
 // server listens
 const port = 8081;
 app.listen(port, appListener);
+
+export { app };
